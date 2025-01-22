@@ -1,1 +1,2 @@
-# iterative_phonon_solver
+# Iterative Phonon Solver
+Traditionally, the more-accurate density-functional theory (DFT) can only solve for phonons up to ~100 atoms, while less accurate molecular dynamics or continuum modeling has to be used for larger systems. This is because conventional method require force evaluations on 3N different configurations to build the force-constant matrix. This project aims to use iterative numerical diagonalization techniques to solve for a small number of phonon eigenstates in a large system such as twisted bilayer graphene while keeping DFT-level accuracy. This python code interacts with the DFT code Siesta and does a new force calculation on each iteration. 
