@@ -1,0 +1,14 @@
+#!/bin/bash
+#SBATCH -J Dav
+#SBATCH -t 8:0:0
+#SBATCH -p parallel
+#SBATCH -N 1
+#SBATCH --ntasks-per-node=48
+
+ml libxc netcdf-fortran netlib-lapack netlib-scalapack openblas 
+ml python/3.8.6 py-numpy/1.18.5 py-scipy/1.5.3
+export OMP_NUM_THREADS=1
+
+rm -r force-eval*
+
+python Davidson_solver.py > Davidson_solver.out

@@ -1,0 +1,35 @@
+SystemName  Twisted Bilayer Graphene
+SystemLabel tbg
+
+NumberOfAtoms        676
+NumberOfSpecies      1
+%block ChemicalSpeciesLabel
+    1   6 C    
+%endblock ChemicalSpeciesLabel
+
+#Mesh.Cutoff 300 Ry
+#PAO.EnergyShift 0.01 Ry
+SCF.H.Tolerance 1.0E-04 eV
+SCF.Mixer.History 6
+#SCF.Mixer.Weight 0.15
+OccupationFunction MP
+ElectronicTemperature 30 K
+
+XC.Functional GGA
+XC.Authors PBE
+
+MM.Cutoff 15.0 Ang
+%block MM.Potentials
+ 1  1 Grimme 1.75 2.904
+%endblock MM.Potentials
+MM.Grimme.S6 0.75
+
+LatticeConstant 1.0 Ang
+%block LatticeParameters
+    31.980    31.980    20.000   90.000   90.000  120.000
+%endblock LatticeParameters
+
+WriteForces true
+DM.UseSaveDM true
+
+%include coord-tmp.fdf
